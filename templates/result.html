@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Submission Results</h1>
+
+    <!-- File + Score Box -->
+    <div class="instructions">
+        <h2>📄 File Submitted:</h2>
+        <p><strong>{{ filename }}</strong></p>
+        <p><strong>Final Score:</strong> <span style="color:#1558b0;">{{ score }} / 100</span></p>
+    </div>
+
+    <!-- Test Results -->
+    <div class="instructions">
+        <h2>🧪 Test Case Results</h2>
+        <ul>
+            <li>🟢 Passed: {{ test_results.passed }}</li>
+            <li>🔴 Failed: {{ test_results.failed }}</li>
+            <li>📂 Total Test Cases: {{ test_results.total }}</li>
+        </ul>
+
+        {% if test_results.errors %}
+        <h3>⚠ Runtime Errors Found:</h3>
+        <ul>
+            {% for err in test_results.errors %}
+                <li>⚠ {{ err }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="instructions">
+        <h2>📝 Feedback & Suggestions</h2>
+        <ul>
+            {% for f in feedback %}
+                <li>{{ f }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Back Button -->
+    <div style="text-align:center; margin-top:25px;">
+        <a href="{{ url_for('index') }}">
+            <button>🔄 Upload Another File</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

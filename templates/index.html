@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coding Homework Submission</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📥 Coding Homework Submission</h1>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Manual Mode Notice -->
+    <p style="text-align:center; font-style:italic; color:#555;">
+        🧠 Manual Evaluation Mode Active (AI Disabled)
+    </p>
+
+    <!-- Instructions Card -->
+    <div class="instructions">
+        <h2>📝 Assignment Instructions</h2>
+        <p>Upload a <strong>.py</strong> file containing your code solution.</p>
+        <ul>
+            <li>🔹 Must contain a function <code>add(a, b)</code></li>
+            <li>🔹 Function must correctly return the sum of two values</li>
+            <li>🔹 Only Python files (.py) are allowed</li>
+        </ul>
+
+        <p><b>Example Format:</b></p>
+
+        <pre style="background:#f4f4f4; padding:10px; border-radius:6px;">
+def add(a, b):
+    return a + b
+        </pre>
+
+        <p>⚠ Ensure there are no syntax errors.</p>
+    </div>
+
+    <!-- Upload Form -->
+    <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <input type="file" id="fileInput" name="file" accept=".py" required>
+        <button type="submit">Upload File</button>
+    </form>
+
+    <p class="note">💡 Submit one file at a time.</p>
+
+</div>
+
+<!-- JavaScript Validation -->
+<script>
+    window.onload = () => document.getElementById("fileInput").value = "";
+
+    document.querySelector("form").addEventListener("submit", function(e){
+        const file = document.getElementById("fileInput").files[0];
+        if (!file || !file.name.endsWith(".py")){
+            alert("Only Python (.py) files are allowed!");
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
