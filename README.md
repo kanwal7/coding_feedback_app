@@ -1,123 +1,129 @@
-<h1 align="center">📝 AI‑Powered Coding Homework Evaluator</h1>
-<p align="center"><em>A Flask web app that automatically tests student Python submissions and provides AI-powered feedback.</em></p>
+<h1 align="center">🚀 AI Homework Evaluator (Manual Mode)</h1>
 
----
+<p align="center">
+  <b>A web app that checks student Python submissions, runs test cases, and generates feedback — even without an AI key.</b>
+  <br>
+  <sub>Built with Flask · Dynamic Test Engine · Instant Feedback</sub>
+</p>
 
-<h2>🔹 Overview</h2>
-<p>This project demonstrates an AI-based solution to a real problem at <b>Metropolia</b>: teachers spend significant time manually checking Python assignments.</p>
-<p>The system automates <b>test execution</b>, <b>scoring</b>, and <b>feedback generation</b>.</p>
+<hr>
 
----
+<h2>📌 Overview</h2>
 
-<h2>🚀 Features</h2>
+<p>
+This project allows students to upload their <b>Python (.py)</b> code which is then evaluated based on predefined tests and rule-based logic.
+It was previously integrated with OpenAI, and the AI feature remains commented in the code so you may reactivate anytime.  
+</p>
+
 <ul>
-  <li><b>File Upload Interface</b> – simple form for submitting <code>.py</code> files</li>
-  <li><b>Automatic Test Execution</b> – runs instructor-defined test cases</li>
-  <li><b>Scoring System</b> – counts passed tests and calculates a final score</li>
-  <li><b>AI Feedback (Optional)</b> – integrate OpenAI/LLM feedback for deeper analysis</li>
-  <li><b>User-Friendly Templates</b> – clean HTML interface to show results</li>
-  <li><b>Safe Execution Wrapper</b> – prevents crashes from invalid student code</li>
+  <li>📁 Upload Python homework files</li>
+  <li>🧪 Runs automated test cases</li>
+  <li>📝 Generates feedback based on code quality</li>
+  <li>⛔ No paid AI required (manual evaluation engine active)</li>
+  <li>🔓 Future-ready — AI integration already included in comments</li>
 </ul>
 
----
+<hr>
+
+<h2>🛠 Tech Stack</h2>
+
+<table>
+<tr><td>⚙ Framework</td><td><b>Flask</b></td></tr>
+<tr><td>📄 Language</td><td><b>Python 3.x</b></td></tr>
+<tr><td>🎨 Frontend</td><td><b>HTML + CSS</b></td></tr>
+<tr><td>🧪 Testing</td><td><b>Dynamic Python test cases</b></td></tr>
+</table>
+
+<hr>
 
 <h2>📂 Project Structure</h2>
+
 <pre>
-coding_feedback_app/
-├── app.py
+📦 project-folder
+├── app.py                 # Main Flask backend
 ├── templates/
-│   ├── index.html
-│   └── result.html
+│   ├── index.html         # Upload UI
+│   └── result.html        # Output + Feedback UI
 ├── static/
-│   └── style.css
-├── uploads/
+│   └── style.css          # Styling sheet
 ├── test_cases/
-│   └── sample_tests.py
+│   └── sample_tests.py    # Validation script
+├── uploads/               # Auto-generated submissions folder
+├── venv/                  # Virtual environment (ignored)
+└── README.md
 </pre>
 
----
+<hr>
 
-<h2>🛠 Installation</h2>
+<h2>⚙ Installation & Setup</h2>
 
-<h3>1️⃣ Clone the repository</h3>
 <pre>
-git clone &lt;your-repo-url&gt;
-cd coding_feedback_app
-</pre>
+# Clone the repository
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
 
-<h3>2️⃣ Create and activate a virtual environment</h3>
-<pre>
+# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+source venv/bin/activate      (Linux/Mac)
+venv\Scripts\activate         (Windows)
+
+# Install requirements
+pip install -r requirements.txt
+
+# Run Flask app
+python app.py
 </pre>
 
-<h3>3️⃣ Install dependencies</h3>
-<pre>
-pip install flask
-</pre>
+<p>Now open in your browser:</p>
 
----
+<pre>http://127.0.0.1:5000/</pre>
 
-<h2>▶️ Running the App</h2>
-<pre>
-flask --app app run --debug
-</pre>
-<p>Open your browser at: <b>http://127.0.0.1:5000</b></p>
+<hr>
 
----
+<h2>📥 Upload Flow</h2>
 
-<h2>🧪 How It Evaluates Code</h2>
+<ol>
+  <li>Open web app</li>
+  <li>Select a <code>.py</code> file and upload</li>
+  <li>Auto test execution begins</li>
+  <li>Get score, test status, and helpful feedback 🎉</li>
+</ol>
+
+<hr>
+
+<h2 id="screenshots">🖼 UI Preview (Screenshot Placeholder)</h2>
+
+<p align="center">
+  <i>Add screenshots in this section using drag & drop on GitHub.</i><br><br>
+  <img src="assets/home.png" width="600" alt="Home Page Preview"><br><br>
+  <img src="assets/result.png" width="600" alt="Result Page Preview">
+</p>
+
+<hr>
+
+<h2>🔮 Future Upgrade Ideas</h2>
+
 <ul>
-  <li>User uploads a <code>.py</code> file</li>
-  <li>System imports it in a controlled environment</li>
-  <li>Test functions inside <code>test_cases/</code> are executed</li>
-  <li>Score is calculated</li>
-  <li>Feedback is generated (<b>AI or rule-based</b>)</li>
+  <li>Re-enable AI feedback using OpenAI or Gemini</li>
+  <li>Allow multiple test files</li>
+  <li>PDF feedback export</li>
+  <li>Leaderboard for classroom usage</li>
 </ul>
 
----
+<hr>
 
-<h2>🤖 AI Feedback (Optional)</h2>
-<p>Set your API key:</p>
-<pre>
-export OPENAI_API_KEY="your-key-here"
-</pre>
+<h2>🤝 Contributing</h2>
 
----
+<p>
+Pull requests are welcome! For major changes, open an issue first to discuss what you'd like to modify.
+</p>
 
-<h2>🔐 Security Notes</h2>
-<ul>
-  <li>Docker sandboxing</li>
-  <li>Time and resource limits</li>
-  <li>File system isolation</li>
-  <li>Non-root execution environment</li>
-</ul>
+<hr>
 
----
+<h2>📜 License</h2>
 
-<h2>📚 Extendability to Other Subjects</h2>
-<p>Although this demo focuses on Python programming, the concept can be applied to many subjects at <b>Metropolia</b>. By adjusting test logic or using subject-specific AI prompts, the same platform can support:</p>
-<ul>
-  <li>Other programming languages (Java, JS, C/C++, SQL)</li>
-  <li>Written assignments (essays, reports)</li>
-  <li>Math and science tasks</li>
-  <li>Design and UX evaluations</li>
-  <li>Data science notebooks</li>
-</ul>
+<p>This project is open-source. Modify & improve freely.</p>
 
----
+<hr>
 
-<h2>✨ Future Improvements</h2>
-<ul>
-  <li>Docker sandbox</li>
-  <li>Instructor dashboards</li>
-  <li>Multi-assignment support</li>
-  <li>Hint generation</li>
-  <li>Real-time editor</li>
-</ul>
-
----
-
-<h2>📄 License</h2>
-<p>This project is part of a <b>recruitment assignment</b> and is <b>not intended for production use</b>.</p>
+<h3 align="center">Made with ❤️ for Learning & Evaluation</h3>
